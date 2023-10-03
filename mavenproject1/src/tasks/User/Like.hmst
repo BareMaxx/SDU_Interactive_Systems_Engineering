@@ -4,7 +4,7 @@
         <task copy="false" id="t1" type="goal">
             <graphics>
                 <graphic folded="false">
-                    <position x="294" y="84"/>
+                    <position x="294" y="83"/>
                 </graphic>
             </graphics>
             <operator id="o1" type="enable" knowledgeproceduraltype="">
