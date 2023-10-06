@@ -7,16 +7,16 @@
                     <position x="308" y="11"/>
                 </graphic>
             </graphics>
-            <operator id="o1" type="enable" knowledgeproceduraltype="">
+            <operator id="o2" type="disable" knowledgeproceduraltype="">
                 <graphics>
                     <graphic>
-                        <position x="327" y="101"/>
+                        <position x="287" y="113"/>
                     </graphic>
                 </graphics>
                 <task copy="false" id="t2" type="motor" knowledgeproceduraltype="">
                     <graphics>
                         <graphic folded="false">
-                            <position x="-216" y="206"/>
+                            <position x="47" y="149"/>
                         </graphic>
                     </graphics>
                     <description>Move mouse to make yoink button</description>
@@ -40,195 +40,202 @@
                         </categories>
                     </coreproperties>
                 </task>
-                <task copy="false" id="t9" type="interactive_output" knowledgeproceduraltype="">
+                <operator id="o1" type="enable" knowledgeproceduraltype="">
                     <graphics>
-                        <graphic folded="false">
-                            <position x="6" y="206"/>
+                        <graphic>
+                            <position x="363" y="190"/>
                         </graphic>
                     </graphics>
-                    <description>Display make yoink page</description>
-                    <xlproperties/>
-                    <coreproperties>
-                        <categories>
-                            <category name="simulation">
-<property name="duration" value="false"/>
-<property name="iterative" value="0"/>
-<property name="optional" value="false"/>
-<property name="minexectime" value="0"/>
-<property name="maxexectime" value="0"/>
-                            </category>
-                            <category name="authority">
-<property name="responsibility" type="java.lang.Boolean" value="false"/>
-<property name="authority" type="java.lang.Boolean" value="false"/>
-                            </category>
-                            <category name="criticality">
-<property name="criticality" type="java.lang.Integer" value="0"/>
-                            </category>
-                        </categories>
-                    </coreproperties>
-                </task>
-                <task copy="false" id="t3" type="interactive_input" knowledgeproceduraltype="">
-                    <graphics>
-                        <graphic folded="false">
-                            <position x="167" y="206"/>
-                        </graphic>
-                    </graphics>
-                    <description>Click on the title field</description>
-                    <xlproperties/>
-                    <coreproperties>
-                        <categories>
-                            <category name="simulation">
-<property name="duration" value="false"/>
-<property name="iterative" value="0"/>
-<property name="optional" value="false"/>
-<property name="minexectime" value="0"/>
-<property name="maxexectime" value="0"/>
-                            </category>
-                            <category name="authority">
-<property name="responsibility" type="java.lang.Boolean" value="false"/>
-<property name="authority" type="java.lang.Boolean" value="false"/>
-                            </category>
-                            <category name="criticality">
-<property name="criticality" type="java.lang.Integer" value="0"/>
-                            </category>
-                        </categories>
-                    </coreproperties>
-                </task>
-                <task copy="false" id="t4" type="interactive_input" knowledgeproceduraltype="">
-                    <graphics>
-                        <graphic folded="false">
-                            <position x="311" y="206"/>
-                        </graphic>
-                    </graphics>
-                    <description>Enter title</description>
-                    <xlproperties/>
-                    <coreproperties>
-                        <categories>
-                            <category name="simulation">
-<property name="duration" value="false"/>
-<property name="iterative" value="0"/>
-<property name="optional" value="false"/>
-<property name="minexectime" value="0"/>
-<property name="maxexectime" value="0"/>
-                            </category>
-                            <category name="authority">
-<property name="responsibility" type="java.lang.Boolean" value="false"/>
-<property name="authority" type="java.lang.Boolean" value="false"/>
-                            </category>
-                            <category name="criticality">
-<property name="criticality" type="java.lang.Integer" value="0"/>
-                            </category>
-                        </categories>
-                    </coreproperties>
-                </task>
-                <task copy="false" id="t5" type="interactive_input" knowledgeproceduraltype="">
-                    <graphics>
-                        <graphic folded="false">
-                            <position x="395" y="206"/>
-                        </graphic>
-                    </graphics>
-                    <description>Click on the description field</description>
-                    <xlproperties/>
-                    <coreproperties>
-                        <categories>
-                            <category name="simulation">
-<property name="duration" value="false"/>
-<property name="iterative" value="0"/>
-<property name="optional" value="false"/>
-<property name="minexectime" value="0"/>
-<property name="maxexectime" value="0"/>
-                            </category>
-                            <category name="authority">
-<property name="responsibility" type="java.lang.Boolean" value="false"/>
-<property name="authority" type="java.lang.Boolean" value="false"/>
-                            </category>
-                            <category name="criticality">
-<property name="criticality" type="java.lang.Integer" value="0"/>
-                            </category>
-                        </categories>
-                    </coreproperties>
-                </task>
-                <task copy="false" id="t6" type="interactive_input" knowledgeproceduraltype="">
-                    <graphics>
-                        <graphic folded="false">
-                            <position x="578" y="206"/>
-                        </graphic>
-                    </graphics>
-                    <description>Type description</description>
-                    <xlproperties/>
-                    <coreproperties>
-                        <categories>
-                            <category name="simulation">
-<property name="duration" value="false"/>
-<property name="iterative" value="0"/>
-<property name="optional" value="false"/>
-<property name="minexectime" value="0"/>
-<property name="maxexectime" value="0"/>
-                            </category>
-                            <category name="authority">
-<property name="responsibility" type="java.lang.Boolean" value="false"/>
-<property name="authority" type="java.lang.Boolean" value="false"/>
-                            </category>
-                            <category name="criticality">
-<property name="criticality" type="java.lang.Integer" value="0"/>
-                            </category>
-                        </categories>
-                    </coreproperties>
-                </task>
-                <task copy="false" id="t7" type="interactive_input" knowledgeproceduraltype="">
-                    <graphics>
-                        <graphic folded="false">
-                            <position x="696" y="206"/>
-                        </graphic>
-                    </graphics>
-                    <description>Press the yoink button</description>
-                    <xlproperties/>
-                    <coreproperties>
-                        <categories>
-                            <category name="simulation">
-<property name="duration" value="false"/>
-<property name="iterative" value="0"/>
-<property name="optional" value="false"/>
-<property name="minexectime" value="0"/>
-<property name="maxexectime" value="0"/>
-                            </category>
-                            <category name="authority">
-<property name="responsibility" type="java.lang.Boolean" value="false"/>
-<property name="authority" type="java.lang.Boolean" value="false"/>
-                            </category>
-                            <category name="criticality">
-<property name="criticality" type="java.lang.Integer" value="0"/>
-                            </category>
-                        </categories>
-                    </coreproperties>
-                </task>
-                <task copy="false" id="t8" type="interactive_output" knowledgeproceduraltype="">
-                    <graphics>
-                        <graphic folded="false">
-                            <position x="845" y="206"/>
-                        </graphic>
-                    </graphics>
-                    <description>Display the yoink</description>
-                    <xlproperties/>
-                    <coreproperties>
-                        <categories>
-                            <category name="simulation">
-<property name="duration" value="false"/>
-<property name="iterative" value="0"/>
-<property name="optional" value="false"/>
-<property name="minexectime" value="0"/>
-<property name="maxexectime" value="0"/>
-                            </category>
-                            <category name="authority">
-<property name="responsibility" type="java.lang.Boolean" value="false"/>
-<property name="authority" type="java.lang.Boolean" value="false"/>
-                            </category>
-                            <category name="criticality">
-<property name="criticality" type="java.lang.Integer" value="0"/>
-                            </category>
-                        </categories>
-                    </coreproperties>
-                </task>
+                    <task copy="false" id="t9" type="interactive_output" knowledgeproceduraltype="">
+                        <graphics>
+                            <graphic folded="false">
+<position x="69" y="232"/>
+                            </graphic>
+                        </graphics>
+                        <description>Display make yoink page</description>
+                        <xlproperties/>
+                        <coreproperties>
+                            <categories>
+<category name="simulation">
+    <property name="duration" value="false"/>
+    <property name="iterative" value="0"/>
+    <property name="optional" value="false"/>
+    <property name="minexectime" value="0"/>
+    <property name="maxexectime" value="0"/>
+</category>
+<category name="authority">
+    <property name="responsibility" type="java.lang.Boolean" value="false"/>
+    <property name="authority" type="java.lang.Boolean" value="false"/>
+</category>
+<category name="criticality">
+    <property name="criticality" type="java.lang.Integer" value="0"/>
+</category>
+                            </categories>
+                        </coreproperties>
+                    </task>
+                    <task copy="false" id="t3" type="interactive_input" knowledgeproceduraltype="">
+                        <graphics>
+                            <graphic folded="false">
+<position x="134" y="312"/>
+                            </graphic>
+                        </graphics>
+                        <description>Click on the title field</description>
+                        <xlproperties/>
+                        <coreproperties>
+                            <categories>
+<category name="simulation">
+    <property name="duration" value="false"/>
+    <property name="iterative" value="0"/>
+    <property name="optional" value="false"/>
+    <property name="minexectime" value="0"/>
+    <property name="maxexectime" value="0"/>
+</category>
+<category name="authority">
+    <property name="responsibility" type="java.lang.Boolean" value="false"/>
+    <property name="authority" type="java.lang.Boolean" value="false"/>
+</category>
+<category name="criticality">
+    <property name="criticality" type="java.lang.Integer" value="0"/>
+</category>
+                            </categories>
+                        </coreproperties>
+                    </task>
+                    <task copy="false" id="t4" type="interactive_input" knowledgeproceduraltype="">
+                        <graphics>
+                            <graphic folded="false">
+<position x="261" y="330"/>
+                            </graphic>
+                        </graphics>
+                        <description>Enter title</description>
+                        <xlproperties/>
+                        <coreproperties>
+                            <categories>
+<category name="simulation">
+    <property name="duration" value="false"/>
+    <property name="iterative" value="0"/>
+    <property name="optional" value="false"/>
+    <property name="minexectime" value="0"/>
+    <property name="maxexectime" value="0"/>
+</category>
+<category name="authority">
+    <property name="responsibility" type="java.lang.Boolean" value="false"/>
+    <property name="authority" type="java.lang.Boolean" value="false"/>
+</category>
+<category name="criticality">
+    <property name="criticality" type="java.lang.Integer" value="0"/>
+</category>
+                            </categories>
+                        </coreproperties>
+                    </task>
+                    <task copy="false" id="t5" type="interactive_input" knowledgeproceduraltype="">
+                        <graphics>
+                            <graphic folded="false">
+<position x="327" y="348"/>
+                            </graphic>
+                        </graphics>
+                        <description>Click on the description field</description>
+                        <xlproperties/>
+                        <coreproperties>
+                            <categories>
+<category name="simulation">
+    <property name="duration" value="false"/>
+    <property name="iterative" value="0"/>
+    <property name="optional" value="false"/>
+    <property name="minexectime" value="0"/>
+    <property name="maxexectime" value="0"/>
+</category>
+<category name="authority">
+    <property name="responsibility" type="java.lang.Boolean" value="false"/>
+    <property name="authority" type="java.lang.Boolean" value="false"/>
+</category>
+<category name="criticality">
+    <property name="criticality" type="java.lang.Integer" value="0"/>
+</category>
+                            </categories>
+                        </coreproperties>
+                    </task>
+                    <task copy="false" id="t6" type="interactive_input" knowledgeproceduraltype="">
+                        <graphics>
+                            <graphic folded="false">
+<position x="479" y="312"/>
+                            </graphic>
+                        </graphics>
+                        <description>Type description</description>
+                        <xlproperties/>
+                        <coreproperties>
+                            <categories>
+<category name="simulation">
+    <property name="duration" value="false"/>
+    <property name="iterative" value="0"/>
+    <property name="optional" value="false"/>
+    <property name="minexectime" value="0"/>
+    <property name="maxexectime" value="0"/>
+</category>
+<category name="authority">
+    <property name="responsibility" type="java.lang.Boolean" value="false"/>
+    <property name="authority" type="java.lang.Boolean" value="false"/>
+</category>
+<category name="criticality">
+    <property name="criticality" type="java.lang.Integer" value="0"/>
+</category>
+                            </categories>
+                        </coreproperties>
+                    </task>
+                    <task copy="false" id="t7" type="interactive_input" knowledgeproceduraltype="">
+                        <graphics>
+                            <graphic folded="false">
+<position x="552" y="251"/>
+                            </graphic>
+                        </graphics>
+                        <description>Press the yoink button</description>
+                        <xlproperties/>
+                        <coreproperties>
+                            <categories>
+<category name="simulation">
+    <property name="duration" value="false"/>
+    <property name="iterative" value="0"/>
+    <property name="optional" value="false"/>
+    <property name="minexectime" value="0"/>
+    <property name="maxexectime" value="0"/>
+</category>
+<category name="authority">
+    <property name="responsibility" type="java.lang.Boolean" value="false"/>
+    <property name="authority" type="java.lang.Boolean" value="false"/>
+</category>
+<category name="criticality">
+    <property name="criticality" type="java.lang.Integer" value="0"/>
+</category>
+                            </categories>
+                        </coreproperties>
+                    </task>
+                    <task copy="false" id="t8" type="interactive_output" knowledgeproceduraltype="">
+                        <graphics>
+                            <graphic folded="false">
+<position x="552" y="190"/>
+                            </graphic>
+                        </graphics>
+                        <description>Display the yoink</description>
+                        <xlproperties/>
+                        <coreproperties>
+                            <categories>
+<category name="simulation">
+    <property name="duration" value="false"/>
+    <property name="iterative" value="0"/>
+    <property name="optional" value="false"/>
+    <property name="minexectime" value="0"/>
+    <property name="maxexectime" value="0"/>
+</category>
+<category name="authority">
+    <property name="responsibility" type="java.lang.Boolean" value="false"/>
+    <property name="authority" type="java.lang.Boolean" value="false"/>
+</category>
+<category name="criticality">
+    <property name="criticality" type="java.lang.Integer" value="0"/>
+</category>
+                            </categories>
+                        </coreproperties>
+                    </task>
+                </operator>
             </operator>
             <description>Make a yoink</description>
             <xlproperties/>
