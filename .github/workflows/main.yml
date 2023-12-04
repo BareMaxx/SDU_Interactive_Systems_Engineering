@@ -15,6 +15,9 @@ jobs:
       uses: sonarsource/sonarcloud-github-action@master
       with:
         projectBaseDir: ./Yoink
+        args: >
+          -Dsonar.organization=baremaxx
+          -Dsonar.projectKey=BareMaxx_SDU_Interactive_Systems_Engineering
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
