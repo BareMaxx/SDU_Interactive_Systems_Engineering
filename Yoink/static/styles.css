@@ -1,0 +1,425 @@
+/* Reset some default styles to have more control over the layout */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color and text color for the whole page */
+body {
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header with a background color and centered text */
+header {
+    background-color: #007acc;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Style the h1 in the header */
+header h1 {
+    color: #fff;
+    font-size: 2rem;
+}
+
+/* Style the main content area */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+input[type="submit"] {
+    background-color: #007acc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Style links */
+a {
+    color: #007acc;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Add more CSS rules to style other elements as needed */
+/* Add styles for the yoink form */
+.form-label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: #007acc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Style the yoinks */
+.yoink-list {
+    list-style: none;
+}
+
+.yoink-item {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 4px;
+}
+/* Add these styles to your existing CSS file */
+
+/* Set the height of html and body to 100% */
+html, body {
+    height: 100%;
+}
+
+/* Container for the two columns */
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Take up 100% of the viewport height */
+}
+
+/* Left Column Styles */
+.left-column {
+    flex: 1;
+    height: 100%; /* Take up 100% of the height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Make the image fill the entire width and height of the column */
+.left-column img {
+    max-width: 100%; /* Adjusted for responsiveness */
+    max-height: 100%; /* Adjusted for responsiveness */
+    object-fit: contain; /* Maintain aspect ratio and fit the container */
+    border-radius: 15px; /* Add rounded corners if desired */
+}
+
+/* Right Column Styles */
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Header Styles */
+.right-column h1 {
+    font-size: min(5vw, 40px); /* Adjusted font size to be responsive */
+    color: #333;
+}
+
+.right-column h2 {
+    font-size: min(4vw, 32px); /* Adjusted font size to be responsive */
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Button Container Styles */
+.button-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 3vh 5vw; /* Adjusted padding for buttons based on viewport height and width */
+    margin-bottom: 3vh; /* Adjusted margin for buttons based on viewport height */
+    text-decoration: none;
+    color: #fff;
+    border-radius: 8px;
+    font-size: min(4vw, 32px); /* Adjusted font size to be responsive */
+    width: auto;
+}
+.btn-primary {
+    background-color: #007acc;
+}
+
+.btn-secondary {
+    background-color: #333;
+}
+
+/* "or" Separator Styles */
+.button-container p {
+    margin: 3vh 0; /* Adjusted margin for "or" separator based on viewport height */
+    color: #555;
+    font-size: min(4vw, 32px); /* Adjusted font size to be responsive */
+}
+
+/* Style for the register page */
+.sign-up {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; /* Reset default margin */
+}
+
+.sign-up .div {
+    background-color: #ffffff;
+    width: 80%;
+    max-width: 600px; /* Set a maximum width for responsiveness */
+    height: auto; /* Adjust to auto for dynamic height */
+    padding: 20px; /* Add padding for better spacing */
+    box-sizing: border-box; /* Include padding in width and height */
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Display children in a column */
+    justify-content: center; /* Center children vertically */
+    align-items: center; /* Center children horizontally */
+}
+
+.sign-up .input-field {
+    position: relative;
+    width: 100%; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    margin-bottom: 15px; /* Adjust the margin as needed */
+}
+
+.sign-up input {
+    width: 100%;
+    height: 100%;
+    padding: 10px; /* Optional: Adjust padding as needed */
+    box-sizing: border-box;
+    font-size: 16px; /* Optional: Adjust font size as needed */
+    border: 1px solid #ccc; /* Optional: Add border for better visibility */
+    border-radius: 5px; /* Optional: Add border-radius for rounded corners */
+}
+
+.sign-up .overlap-group {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #00000033;
+    border-radius: 30px;
+    z-index: 1; /* Ensure the input field is on top */
+}
+
+.sign-up .text-wrapper {
+    font-size: 40px;
+}
+
+.sign-up .text-wrapper-2 {
+    font-family: "Inter-Thin", Helvetica;
+    font-weight: 100;
+    color: #b8a5a5;
+    font-size: 40px;
+}
+
+.sign-up .rectangle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 1px;
+    left: 0;
+    background-color: #efe7e7;
+    border-radius: 30px;
+}
+
+.label {
+    font-size: 20px; /* Adjust the font size as needed */
+    margin-bottom: 8px; /* Adjust the margin as needed */
+}
+
+.box {
+    width: 100%;
+    max-width: 375px; /* Set a maximum width for responsiveness */
+}
+
+.sign-up-button {
+    width: 100%;
+    max-width: 377px; /* Set a maximum width for responsiveness */
+    height: 80px; /* Adjust the height as needed */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.overlap-group {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #00000033;
+    border-radius: 30px;
+}
+
+.text-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 80px; /* Center text vertically */
+    white-space: nowrap;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 20px; /* Add some spacing between the header and the form */
+}
+
+.page-header h1 {
+    font-size: 72px; /* Adjust the font size as needed */
+    margin-bottom: 10px; /* Add some spacing between the header and the form */
+}
+
+/* Home page */
+.content-container {
+    width: 700px;
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Add these styles to your styles.css file */
+
+.content-container {
+    width: 700px; /* Set the width of the content container */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Style for the home page */
+.yoink-list-container {
+    margin-bottom: 20px; /* Adjust the margin to create less space */
+    max-height: calc(100vh - 85px); /* Adjust based on form's bottom margin and height */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds the container height */
+    scrollbar-width: thin; /* Hide the scrollbar in Firefox */
+}
+
+/* Style for Webkit browsers (Chrome, Safari) */
+.yoink-list-container::-webkit-scrollbar {
+    width: 0; /* Hide the scrollbar in Webkit browsers */
+}
+
+.yoink-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.yoink-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+/* Style for the yoink form */
+.yoink-form {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100vw / 3); /* 1/3 of the page width */
+    padding: 10px;
+    background-color: #333;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Ensure the form is on top */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.yoink-form img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.yoink-form input,
+.yoink-form button {
+    margin: 5px;
+}
+
+.yoink-form .input-column {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.yoink-form .form-label {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.yoink-form .form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    background-color: transparent;
+    color: white;
+    font-size: 16px; /* Set the font size to 16px */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.yoink-form .btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}

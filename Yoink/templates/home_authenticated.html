@@ -1,0 +1,293 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content_authenticated %}
+<div class="browse-yoinks-container">
+    <div class="yoink-list-container">
+        <h3>Recent Yoinks</h3>
+        <ul class="yoink-list">
+            {% for yoink in yoinks %}
+                <li class="yoink-item">
+                    <!-- Existing yoink item content -->
+                    <div class="box">
+                        <div class="yoink">
+                            <div class="overlap-group">
+                                <!-- Other yoink content -->
+                                <div class="user-profile-image">
+                                    <img class="vector" src="{{ yoink.user.profile_picture }}" alt="Profile Picture" width="40" height="40" />
+                                </div>
+                                <div class="user-info">
+                                    <div class="username" style="font-size: 22px;">{{ yoink.user.username }}</div>
+                                </div>
+                                <p class="yoink-content">{{ yoink.content }}</p>
+                                <img class="post-options-button" src="img/post-options-button.svg" />
+
+                                <!-- New container for comment, form, and like elements -->
+                                <div class="comment-like-container">
+                                    <!-- Comment button -->
+                                    <i class="far fa-comment view-comments-icon" data-post-id="{{ yoink.id }}"></i>
+
+                                    <!-- Comment form -->
+                                    <form action="{{ url_for('add_comment', yoink_id=yoink.id) }}" method="POST" class="comment-form">
+                                        <input type="text" name="comment_text" placeholder="Add a comment">
+                                        <button type="submit">Submit</button>
+                                    </form>
+
+                                    <!-- Like button and text -->
+                                    <div class="yoink-likes">
+                                        <button class="like-button {% if yoink_is_liked_by_user(yoink.id) %}liked{% endif %}" data-post-id="{{ yoink.id }}">
+                                            <i class="fas fa-thumbs-up"></i>
+                                        </button>
+                                        <div class="number-of-likes">{{ yoink_likes.get(yoink.id, 0) }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <form method="POST" class="yoink-form">
+        {{ form.hidden_tag() }}
+        <!-- Display user's profile picture -->
+        <img src="{{ current_user.profile_picture }}" alt="Profile Picture" class="profile-picture" width="40" height="40" />
+        {{ form.content(class="form-control auto-height", placeholder="What are you yoinking about?") }}
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+</div>
+
+<style>
+.comment-like-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%; /* Make the container fill up the entire width */
+    z-index: 1;
+    background-color: #d9d9d9; /* Set a background color for better visibility */
+    padding: 10px; /* Add padding to the container */
+}
+
+/* Style for the comment icon container */
+.comment-icon-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Style for the comment icon */
+.view-comments-icon {
+    color: #333;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-right: 10px; /* Add margin to the right for spacing */
+}
+
+/* Style for the comment and like buttons */
+.comment-like-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.comment-form {
+    display: flex;
+}
+
+.comment-form input {
+    margin-right: 10px;
+}
+
+.like-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    margin-right: 5px; /* Add margin to the right for spacing */
+}
+
+.like-button.liked {
+    color: #4CAF50;
+}
+
+.number-of-likes {
+    font-family: "Inter-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #0d0d0d;
+    font-size: 24px;
+}
+
+    .view-comments-icon {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: #333;
+        font-size: 1.5em; /* Adjusted font size */
+        cursor: pointer;
+        z-index: 1; /* Ensure the icon appears above other content */
+    }
+
+    .like-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #333;
+    }
+
+    .like-button.liked {
+        color: #4CAF50;
+    }
+
+    .box {
+        width: 100%;
+        min-height: 80px; /* Set a minimum height */
+    }
+
+    .yoink {
+        position: relative;
+        width: 100%;
+        min-height: 80px; /* Set a minimum height */
+    }
+
+    .overlap-group {
+        position: relative;
+        width: 100%;
+        height: 193px;
+        background-color: #d9d9d9;
+        padding: 10px;
+    }
+
+    .yoink-likes {
+        position: absolute;
+        width: 102px;
+        height: 38px;
+        bottom: 10px;
+        right: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .number-of-likes {
+        margin-left: 5px;
+        font-family: "Inter-SemiBold", Helvetica;
+        font-weight: 600;
+        color: #0d0d0d;
+        font-size: 24px;
+    }
+
+    .user-profile-image {
+        position: absolute;
+        width: 40px; /* Updated size to 40x40 */
+        height: 40px; /* Updated size to 40x40 */
+        top: 10px;
+        left: 10px;
+        background-color: #9f9f9f;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .vector {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .user-info {
+        position: absolute;
+        top: 10px;
+        left: 60px; /* Adjusted left position */
+    }
+
+    .username {
+        font-family: "Inter-SemiBold", Helvetica;
+        font-weight: 600;
+        color: #000000;
+        font-size: 22px; /* Updated font size to 22px */
+        letter-spacing: 0;
+        line-height: normal;
+        margin: 0;
+        font-weight: bold;
+    }
+
+    .yoink-content {
+        position: absolute;
+        width: calc(100% - 160px); /* Adjusted width to avoid exceeding yoink post width */
+        top: 60px;
+        left: 60px;
+        font-family: "Inter-Light", Helvetica;
+        font-weight: 300;
+        color: #000000;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: normal;
+        margin: 0;
+    }
+
+    .post-options-button {
+        position: absolute;
+        width: 10px;
+        height: 36px;
+        top: 10px;
+        right: 10px;
+    }
+
+    /* Style for the comment form */
+    .yoink-item form {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        display: flex;
+        z-index: 1; /* Ensure the form appears above other content */
+    }
+
+    .yoink-item form input {
+        margin-right: 10px;
+    }
+
+    /* Style for the view comments link */
+    .view-comments-link {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: #333;
+        text-decoration: underline;
+        cursor: pointer;
+        z-index: 1; /* Ensure the link appears above other content */
+    }
+</style>
+
+<script src="https://kit.fontawesome.com/bf37f93663.js" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const likeButtons = document.querySelectorAll('.like-button');
+
+        likeButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const postId = this.getAttribute('data-post-id');
+                const isLiked = this.classList.toggle('liked');
+
+                // Perform AJAX request to handle like/unlike on the server
+                fetch(`/like/${postId}`, {
+                    method: isLiked ? 'POST' : 'DELETE',
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok, status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Update the like count on the page
+                    const likeCountElement = this.nextElementSibling;
+                    likeCountElement.textContent = data.likes;
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+            });
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content_welcome %}
+    <div class="page-header">
+        <h1>Login</h1>
+    </div>
+    <form id="login-form" method="POST" action="{{ url_for('login') }}">
+        {{ form.hidden_tag() }}
+
+        <div class="sign-up">
+            <div class="div">
+                <!-- Error message for user not found -->
+                <div id="user-not-found-error" class="error-message" style="color: red;"></div>
+
+                <div class="input-field">
+                    <div class="overlap-group">
+                        {{ form.email(class="text-wrapper", placeholder="Email") }}
+                    </div>
+                </div>
+
+                <div class="input-field">
+                    <div class="overlap-group">
+                        {{ form.password(class="text-wrapper", placeholder="Password") }}
+                    </div>
+                </div>
+
+                <button type="submit" class="sign-up-button">
+                    <div class="overlap-group">
+                        <div class="text-wrapper">Login</div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Your form validation logic here
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            // Submit the form via AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', "{{ url_for('login') }}", true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        // Redirect to the home page if login is successful
+                        window.location.href = "{{ url_for('home') }}";
+                    } else {
+                        // Display error message for user not found
+                        document.getElementById('user-not-found-error').innerText = 'User not found.';
+                    }
+                }
+            };
+
+            var formData = new FormData(this);
+            xhr.send(new URLSearchParams(formData));
+        });
+    </script>
+{% endblock %}

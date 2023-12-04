@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content_welcome %}
+    <div class="page-header">
+        <h1>Create your account</h1>
+    </div>
+    <form id="registration-form" method="POST" action="{{ url_for('register') }}">
+        {{ form.hidden_tag() }}
+
+        <div class="sign-up">
+            <div class="div">
+                <div class="input-field">
+                    <div class="overlap-group">
+                        {{ form.username(class="text-wrapper", placeholder="Username") }}
+                    </div>
+                </div>
+        
+                <div class="input-field">
+                    <div class="overlap-group">
+                        {{ form.email(class="text-wrapper", placeholder="Email") }}
+                    </div>
+                </div>
+        
+                <div class="input-field">
+                    <div class="overlap-group">
+                        {{ form.password(class="text-wrapper", placeholder="Password") }}
+                    </div>
+                    <!-- Error message for the password field -->
+                    <span id="password-error" class="error-message"></span>
+                </div>
+        
+                <div class="input-field">
+                    <div class="overlap-group">
+                        {{ form.repeat_password(class="text-wrapper", placeholder="Repeat Password") }}
+                    </div>
+                </div>
+        
+                <button type="submit" class="sign-up-button">
+                    <div class="overlap-group">
+                        <div class="text-wrapper">Create Account</div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function (event) {
+            // Prevent the default form submission
+            event.preventDefault();
+    
+            // Your form validation logic here
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var repeatPassword = document.getElementById('repeat_password').value;
+    
+            // Check for a valid email format
+            if (!isValidEmail(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+    
+            // Check if passwords match
+            if (password !== repeatPassword) {
+                // Display error message for passwords not matching
+                document.getElementById('password-error').innerText = 'Passwords must match.';
+                return;
+            }
+
+            // Clear the error message if passwords match
+            document.getElementById('password-error').innerText = '';
+
+            // Submit the form via AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', "{{ url_for('register') }}", true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // Show the success alert
+                    alert('Account created successfully');
+    
+                    // Redirect to the home page after closing the alert
+                    window.location.href = "{{ url_for('home') }}";
+                } else {
+                    // Display validation errors or other error messages
+                    alert('Registration failed. Please check the form.');
+                    console.log(xhr.responseText); // Log response to the console for debugging
+                }
+            };
+    
+            var formData = new FormData(this);
+            xhr.send(new URLSearchParams(formData));
+        });
+    
+        // Function to check for a valid email format
+        function isValidEmail(email) {
+            // Use a regular expression for basic email format validation
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>    
+    
+{% endblock %}

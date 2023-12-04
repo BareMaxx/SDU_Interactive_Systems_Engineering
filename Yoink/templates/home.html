@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <h2>Welcome to Yoink</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.content.label(class="form-label") }}
+        {{ form.content(class="form-control") }}
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+    <h3>Recent Yoinks</h3>
+    <ul class="yoink-list">
+        {% for yoink in yoinks %}
+        <li class="yoink-item">
+            {{ yoink.content }}
+            <a href="{{ url_for('like', yoink_id=yoink.id) }}">Like</a>
+            <a href="{{ url_for('comment', yoink_id=yoink.id) }}">Comment</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

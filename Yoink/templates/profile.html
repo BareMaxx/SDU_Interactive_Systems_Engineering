@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}User Profile{% endblock %}
+
+{% block content %}
+    <h1>User Profile</h1>
+    
+    <!-- Display user details -->
+    <h2>{{ user.username }}</h2>
+    <img src="{{ user.profile_picture }}" alt="Profile Picture">
+    <p>{{ user.bio }}</p>
+
+    {% if current_user.is_authenticated and user.id != current_user.id %}
+        {% if current_user.is_following(user) %}
+            <form action="{{ url_for('unfollow_user', followed_id=user.id) }}" method="post">
+                <button type="submit">Unfollow</button>
+            </form>
+        {% else %}
+            <form action="{{ url_for('follow_user', followed_id=user.id) }}" method="post">
+                <button type="submit">Follow</button>
+            </form>
+        {% endif %}
+    {% endif %}
+    
+    <!-- Display user's Yoinks -->
+    <h2>User's Yoinks</h2>
+    <ul>
+        {% for yoink in yoinks %}
+            <li>{{ yoink.content }}</li>
+        {% endfor %}
+    </ul>
+    
+    <!-- Display user's Comments -->
+    <h2>User's Comments</h2>
+    <ul>
+        {% for comment in comments %}
+            <li>{{ comment.text }}</li>
+        {% endfor %}
+    </ul>
+    
+    <!-- Display user's Liked Yoinks -->
+    <h2>User's Liked Yoinks</h2>
+    <ul>
+        {% for liked_yoink in liked_yoinks %}
+            <li>{{ liked_yoink.content }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

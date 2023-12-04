@@ -1,0 +1,18 @@
+<!-- comments.html -->
+{% extends "base.html" %}
+{% block title %}Comments{% endblock %}
+
+{% block content %}
+    <h2>Comments for Yoink: {{ yoink.content }}</h2>
+    <ul>
+        {% for comment in comments %}
+            <li>{{ comment.text }}</li>
+        {% endfor %}
+    </ul>
+    <!-- Create a form to add a new comment -->
+    <form action="{{ url_for('add_comment', yoink_id=yoink.id) }}" method="POST">
+        <input type="text" name="comment_text" placeholder="Add a comment">
+        <button type="submit">Submit</button>
+    </form>
+</ul>
+{% endblock %}
